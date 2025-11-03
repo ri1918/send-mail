@@ -111,5 +111,6 @@ HTTP 请求的地方，都可以使用此功能发送邮件通知。
 ### 参考资料
 - [Github Actions 文档](https://docs.github.com/en/actions)
 - [dawidd6/action-send-mail](https://github.com/dawidd6/action-send-mail)
+- [create-a-repository-dispatch-event](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event)
 
 欢迎大家提供反馈和建议！
