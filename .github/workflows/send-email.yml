@@ -1,0 +1,33 @@
+name: 触发邮件发送
+
+on:
+  workflow_dispatch:
+    inputs:
+      to_email:
+        description: '收件人邮箱'
+        required: true
+        default: '447212528@qq.com'
+      email_subject:
+        description: '邮件主题'
+        required: true
+        default: '来自您网站的新留言'
+      email_body:
+        description: '邮件正文'
+        required: true
+        default: '留言内容将在这里显示。'
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 发送邮件
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ github.event.inputs.email_subject }}
+          to: ${{ github.event.inputs.to_email }}
+          from: 您的网站留言系统
+          body: ${{ github.event.inputs.email_body }}
